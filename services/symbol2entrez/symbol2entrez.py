@@ -7,8 +7,8 @@ import mygene as mg
 def convert(symbols):
     mv = mg.MyGeneInfo()
     result = mv.querymany(symbols, scopes = 'symbol', fields='symbol,entrezgene', as_dataframe= True, species=9606, verbose = False)
-    result = result[['entrezgene','symbol']].to_json(orient = 'records')
-    click.echo(result)
+    #result = result[['entrezgene','symbol']].to_json(orient = 'records')
+    result.to_csv('test.txt')
 
 if __name__ == '__main__':
     convert()
